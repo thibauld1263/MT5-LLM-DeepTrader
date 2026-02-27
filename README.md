@@ -1,7 +1,7 @@
 **DeepTrader**
 
-**What is it?
-**
+What is it?
+
 
 DeepTrader is a modern Large Language Model (LLM) architecture (Transformer with RMSNorm, RoPE, and SwiGLU) to read raw, multi-timeframe price action (M30, H1, H4) and make trading decisions. 
 
@@ -15,8 +15,7 @@ Instead of relying on standard technical indicators, it evaluates the market sta
 - **Short Win:** Probability of hitting a Take Profit.
 - **Abort:** Probability that the trade will stall, allowing for an early exit.
 
-## Why?
-Most AI trading bots rely on Python bridging servers that cause execution lag or use overly simplistic models. DeepTrader is entirely built to be exported as a standalone `.onnx` file. The heavy neural network runs natively inside MT5's engine for maximum speed and zero dependencies during live trading.
+DeepTrader is entirely built to be exported as a standalone `.onnx` file. The heavy neural network runs natively inside MT5's engine for speed and zero dependencies during live trading.
 
 ## How to use it?
 
