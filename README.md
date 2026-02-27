@@ -15,7 +15,7 @@ Instead of relying on standard technical indicators, it evaluates the market sta
 - **Short Win:** Probability of hitting a Take Profit.
 - **Abort:** Probability that the trade will stall, allowing for an early exit.
 
-DeepTrader is entirely built to be exported as a standalone `.onnx` file. The heavy neural network runs natively inside MT5's engine for speed and zero dependencies during live trading.
+DeepTrader is entirely built to be exported as a `.onnx` file. The heavy neural network runs inside MT5's engine for speed and zero dependencies.
 
 ## How to use it?
 
