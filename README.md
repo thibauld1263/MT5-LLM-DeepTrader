@@ -3,7 +3,7 @@
 What is it?
 
 
-DeepTrader is a modern Large Language Model (LLM) architecture (Transformer with RMSNorm, RoPE, and SwiGLU) to read raw, multi-timeframe price action (M30, H1, H4) and make trading decisions. 
+DeepTrader is a modern Large Language Model (LLM) architecture (Transformer with RMSNorm, RoPE, and SwiGLU, similar structure as Llama 3, recent Mistral updates, etc) to read raw, multi-timeframe price action (M30, H1, H4) and make trading decisions. 
 
 As any modern LLM, the training happens in 3 phases:
 1. Pre-training
@@ -34,6 +34,9 @@ python -m scripts.run_pretrain
 
 # Phase 2: Fine-tune the model to predict the ATR-based probabilities
 python -m scripts.run_finetune
+
+# Phase 3: Align the model with DPO
+python -m scripts.run_align
 
 # Export the trained model to ONNX format
 python -m scripts.run_export
