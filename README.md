@@ -15,7 +15,7 @@ Instead of relying on standard technical indicators, it evaluates the market sta
 - **Short Win:** Probability of hitting a Take Profit.
 - **Abort:** Probability that the trade will stall, allowing for an early exit.
 
-DeepTrader is entirely built to be exported as a `.onnx` file. The heavy neural network runs inside MT5's engine for speed and zero dependencies.
+That type of big model doesn't need indicators as they are able to find them on their own. DeepTrader is entirely built to be exported as a `.onnx` file. The heavy neural network runs inside MT5's engine for speed and zero dependencies.
 
 ## How to use it?
 
@@ -25,18 +25,24 @@ DeepTrader is entirely built to be exported as a `.onnx` file. The heavy neural 
 3. Move the generated CSV files to the `data/raw/` folder in this project.
 
 ### 2. Training the Model
-Run the Python pipeline to train the model on your data.
+Run the Python pipeline to train the model on your data. 
 
 pip install -r requirements.txt
 
 # Phase 1: Pre-train the Transformer to understand market structures
 python -m scripts.run_pretrain
 
+Phase 1 teaches the model the structure of the market, its goal is to predict the next candle.
+
 # Phase 2: Fine-tune the model to predict the ATR-based probabilities
 python -m scripts.run_finetune
 
+Phase 2 teaches the model to "trade." During fine-tuning, the model learns to predict the next 10 candles using SL and TP based on ATR. The model tries to reach as many TPs as possible.
+
 # Phase 3: Align the model with DPO
 python -m scripts.run_align
+
+Phase 3 teaches the model to learn from its mistakes on its own trades.
 
 # Export the trained model to ONNX format
 python -m scripts.run_export
