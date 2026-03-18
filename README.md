@@ -1,4 +1,4 @@
-**DeepTrader**
+**DeepTrader: Experimental transformer-based model for multi-timeframe time-series representation learning**
 
 What is it?
 
